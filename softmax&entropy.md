@@ -30,6 +30,6 @@ This ensures:
 $$y_i(\mathbf{x}|t) = \frac{e^{\frac{z_i(\mathbf{x})}{t}}}{\sum_{j=1}^{K} e^{\frac{z_j(\mathbf{x})}{t}}}$$
 
 - $t = 1$ 就是正常的 softmax
-- $t \to 0^+$ 时，会退化为 Hardmax，直接取得分最高项为 1，其余为 0
+- $t \to 0^+$ 时，会退化为 one-hot(Hardmax)，直接取得分最高项为 1，其余为 0
 - $t > 1$ 把一些高 softmax 的 score 给到那些不那么高的；越温和，越能考虑到类别之间的联系，不会完全抹除低分的类别
 - $t \to +\infty$，$y_i(\mathbf{x}|+\infty) = \frac{1}{K}$，所有类别的概率都一致，即 uniform distribution
