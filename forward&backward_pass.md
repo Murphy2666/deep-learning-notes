@@ -1,6 +1,7 @@
 # Neural Network Training Process
 
-最开始 $W$ 都是随机的，形状永远是 $(m, x)$，$m$ 是特征数（也是 `input_shape=[m]`，这里不写前向传播里 $X$ 的真实 shape 即 `[batch_size, m]`），$x$ 是神经元数。  
+最开始 $W$ 都是随机的，形状永远是 $(m, x)$。  
+$m$ 是特征数（也是 `input_shape=[m]`，这里不写前向传播里 $X$ 的真实 shape 即 `[batch_size, m]`），$x$ 是神经元数。  
 $b$ 默认全是 0。
 
 $$\text{1个 batch} \longrightarrow \text{1次前向传播} \longrightarrow \text{1次反向传播} \longrightarrow \text{1次更新参数}$$
@@ -15,12 +16,12 @@ $\sigma$ 是 activation 激活函数。
 **预测值：**
 $$\hat{y} = \sigma(X W + b)$$
 
-$$Y_{\text{[batchSize, x]}} = X_{\text{[batchSize, m]}} \cdot W_{\text{[m, x]}} + b_{\text{[1, x]}} 再过一下激活函数 $$
+$$Y_{[batchSize, x]} = \sigma\left( X_{[batchSize, m]} \cdot W_{[m, x]} + b_{[1, x]} \right)$$
 
 * $\sigma$ 为激活函数（如 ReLU, Sigmoid, Tanh 等）
-* $X$ 为输入数据矩阵（$\text{Shape} = [\text{batch\_size}, m]$）
-* $W$ 为权重矩阵（$\text{Shape} = [m, x]$）
-* $b$ 为偏置向量（$\text{Shape} = [1, x]$），通过广播机制相加到 $X \cdot W$ 上
+* $X$ 为输入数据矩阵（Shape = `[batchSize, m]`）
+* $W$ 为权重矩阵（Shape = `[m, x]`）
+* $b$ 为偏置向量（Shape = `[1, x]`），通过广播机制相加到 $X \cdot W$ 上
 
 ---
 
