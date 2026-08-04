@@ -20,6 +20,10 @@ This ensures:
 1. If $z_i \ll z_j$, then $e^{z_i} \ll e^{z_j}$
 2. Normalization 归一化：所有 category 的 softmax 之和是 1
    $$\sum_{i=1}^{K} \sigma(\mathbf{z})_i = 1$$
+   
+其实sigmoid是softmax的一种
+    
+$$P(\text{Class 1}) = \frac{e^{z_1}}{e^{z_1} + e^{z_2}} = \frac{1}{1 + e^{-(z_1 - z_2)}} = \frac{1}{1 + e^{-\Delta z}} = \sigma(\Delta z)$$
 
 ---
 
