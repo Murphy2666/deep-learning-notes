@@ -11,7 +11,7 @@ $$\text{1个 batch} \longrightarrow \text{1次前向传播} \longrightarrow \tex
 ### 1、前向传播（Forward Pass 本质是空间变换）
 **(wx+b空间拉伸/旋转/平移-->激活函数σ(·)空间弯曲/折叠)**
 
-输入一个 batch 的数量，假设 3 个神经元，它们各自不同的初始 $W$ 算 3 套预测值。  
+输入一个 batch 的数量，假设 **3 个神经元**，它们各自不同的初始 $W$ 算 3 套预测值。  
 $\sigma$ 是 activation 激活函数。
 
 **预测值：**
@@ -48,6 +48,13 @@ $$z = w_1 x_1 + w_2 x_2 + b$$ 只能做linear transformation线性/仿射变换�
 * 对 $w_1, b_1$ 求偏导 $\implies$ 得到梯度 $g_{w1}, g_{b1}$
 * 对 $w_2, b_2$ 求偏导 $\implies$ 得到梯度 $g_{w2}, g_{b2}$
 * 对 $w_3, b_3$ 求偏导 $\implies$ 得到梯度 $g_{w3}, g_{b3}$
+
+$$
+\begin{aligned}
+\nabla_{w_i} L &= \frac{\partial L(y, \hat{y})}{\partial w_i} = g_{wi} \quad (i \in \{1, 2, 3\}) \\
+\nabla_{b_i} L &= \frac{\partial L(y, \hat{y})}{\partial b_i} = g_{bi} \quad (i \in \{1, 2, 3\})
+\end{aligned}
+$$
 
 ---
 
