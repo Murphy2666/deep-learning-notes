@@ -66,6 +66,12 @@ $$w_{\text{new}} = w_{\text{old}} - \text{learningRate} \times g_w$$
 
 $$b_{\text{new}} = b_{\text{old}} - \text{learningRate} \times g_b$$
 
+为什么是 $-\text{learningRate} \times g_w$，学习率又是正数，为什么前面负号与 $g_{w_i}$ 相反的方向？
+因为 $g_{w_i}$ 是 Loss 随 $w_i$ 增长的单位变化量（切线斜率）：
+
+* 如果 $g_{w_i} > 0$，Loss 随 $w_i$ 增大而增大，要找 Loss 最低点，所以取 $-g_{w_i}$（向左走，减小 $w_i$）。
+* 如果 $g_{w_i} < 0$，Loss 随 $w_i$ 增大而减小，要找 Loss 最低点，所以取 $-g_{w_i}$（即正数，向右走，增大 $w_i$）
+
 ---
 
 **总共更新次数：**
