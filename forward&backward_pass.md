@@ -24,7 +24,7 @@ $$Y_{[batchSize, x]} = \sigma\left( X_{[batchSize, m]} \cdot W_{[m, x]} + b_{[1,
 * $W$ 为权重矩阵（Shape = `[m, x]`）
 * $b$ 为偏置向量（Shape = `[1, x]`），通过广播机制相加到 $X \cdot W$ 上
 
-wx+b 不进 $\sigma$ 激活函数，就只是简单的对input data空间的线性变换，直线还是直线，平面还是平面\
+wx+b 不进 $\sigma$ 激活函数，就只是简单的对input data空间的线性变换，直线还是直线，平面还是平面
 
 比如二维的input space,($x_1$, $x_2$):\
 $$z = w_1 x_1 + w_2 x_2 + b$$ 只能做linear transformation线性/仿射变换，fold,bend 折叠/弯曲需要靠激活函数
@@ -77,7 +77,8 @@ $$b_{\text{new}} = b_{\text{old}} - \text{learningRate} \times g_b$$
 * 如果 $g_{w_i} > 0$，Loss 随 $w_i$ 增大而增大，要找 Loss 最低点，所以取 $-g_{w_i}$（向左走，减小 $w_i$）。
 * 如果 $g_{w_i} < 0$，Loss 随 $w_i$ 增大而减小，要找 Loss 最低点，所以取 $-g_{w_i}$（即正数，向右走，增大 $w_i$）
 
-  **注意 找的Loss最低点是local minimum局部最小 几个坑可能有比现在更低的**
+  **注意**：找的Loss最低点是local minimum局部最小，几个坑可能有比现在更低的；\
+  不考虑学习率的情况下，越接近谷底偏导绝对值越小
 
 ---
 
