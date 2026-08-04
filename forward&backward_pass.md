@@ -77,7 +77,11 @@ $$b_{\text{new}} = b_{\text{old}} - \text{learningRate} \times g_b$$
 * 如果 $g_{w_i} > 0$，Loss 随 $w_i$ 增大而增大，要找 Loss 最低点，所以取 $-g_{w_i}$（向左走，减小 $w_i$）。
 * 如果 $g_{w_i} < 0$，Loss 随 $w_i$ 增大而减小，要找 Loss 最低点，所以取 $-g_{w_i}$（即正数，向右走，增大 $w_i$）
 
-上述“**计算梯度方向 $\to$ 沿该方向走一小步**”的完整过程重复多次，不断更新参数，直到 Loss 收敛到局部最小值点，就是**梯度下降算法 (Gradient Descent Algorithm)**：
+上述“**计算梯度方向 $\to$ 沿该方向走一小步**”的完整过程重复多次:
+<p align="center">
+                              前向传播 $\implies$  计算 loss $\implies$ 反向传播求梯度 $\implies$  更新参数
+</p>
+直到 Loss 收敛到局部最小值点，就是**梯度下降算法 (Gradient Descent Algorithm)**：
 
  *"The algorithm for minimizing this function is to compute this gradient direction, take a step downhill, and repeat that over and over."*
 
