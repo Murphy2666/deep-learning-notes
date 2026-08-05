@@ -29,6 +29,9 @@ wx+b 不进 $\sigma$ 激活函数，就只是简单的对input data空间的线�
 比如二维的input space,($x_1$, $x_2$):\
 $$z = w_1 x_1 + w_2 x_2 + b$$ 只能做linear transformation线性/仿射变换，fold,bend 折叠/弯曲需要靠激活函数
 
+最后得到的新空间，维度=神经元个数，就是新的representation\
+推导详见linear_seperable.md
+
 ### 几何直观：ReLU 与 Sigmoid 如何改变二维空间
 
 * **ReLU（沿 $z=0$ 折叠 / Folding）**
@@ -43,6 +46,7 @@ $$P(\text{Class 1}) = \frac{e^{z_1}}{e^{z_1} + e^{z_2}} = \frac{1}{1 + e^{-(z_1 
 * **Sigmoid（非线性弯曲与挤压 / Bending/Warping）**
   * **几何直观：** 把原本平直的 $x$ 轴，**弯曲拉伸**成一条 S 型的 Sigmoid 曲线。
   * **本质：** 将整个空间的远端向 $(0, 1)$ 区间内**弯曲并挤压**。
+
 
 ---
 
