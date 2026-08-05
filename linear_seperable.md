@@ -1,10 +1,12 @@
-
 # 向前传导几何变换、特征表示（Representation）
 https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/#fnref2
 
-深度学习本质是传好几层，线性/非线性改变空间，一次次得到新的表示，直到最新表示下的特征变得线性可分\
-（决策边界划得开）
+深度学习本质是传好几层，线性/非线性地改变空间，把input layer的扭曲流形（缠在一起的绳子），一次次映射为新的表示，直到最新表示下的特征变得线性可分（揉成平行直线决策边界划得开）\
+- **理想同胚模式（完全不折叠/不压扁）**： $\mathbf{W}$ 非奇异+使用可逆的激活函数（如 $\tanh$ ）\
+  等于在不剪断、不折叠压扁的前提下，对空间进行连续的拉伸、弯曲与解缠
 
+- **实际工程模式（允许压扁与折叠）**: 比如ReLU 把负半轴的空间折叠并压扁到坐标轴上
+  
 <img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/7e874b64-a080-460e-ad79-bf6422b0ac65" />
 
 一次次拉伸、扭曲空间，直到直线可以平分（linearly seperable, 二维里是直线，n维里叫决策边界，高维超平面hyperplane）
