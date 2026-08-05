@@ -1,6 +1,6 @@
 
 # 向前传导几何变换、特征表示（Representation）
-
+https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/#fnref2
 ---
 ### 1、向前传导本质是空间拉伸、平移、弯曲
 假设这一层（可以是input layer）空间是 \
