@@ -22,7 +22,7 @@ $$\mathbf{a} = \sigma(\mathbf{W}\mathbf{x} + \mathbf{b}) = (a_1, a_2, \dots, a_k
   激活函数 $\sigma$: 扭曲、挤压、折叠。
 
 
-####  $\sigma$ 几何直观：ReLU 与 Sigmoid 如何改变二维空间
+####  Eg. $\sigma$ 几何直观：ReLU 与 Sigmoid 如何改变二维空间
 
 * **ReLU（沿 $z=0$ 折叠 / Folding）**
   * **几何直观：** 以直线 $y = x$ 为例，原本是穿过原点 $(0,0)$ 的平直直线；经过 ReLU 作用后，在 $x \le 0$ 区域被**拍平折叠**为 $y = 0$，而在 $x > 0$ 区域保持 $y = x$。其实沿y=0折叠
