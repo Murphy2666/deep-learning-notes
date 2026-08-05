@@ -35,6 +35,16 @@ $$\mathbf{a} = \sigma(\mathbf{W}\mathbf{x} + \mathbf{b}) = (a_1, a_2, \dots, a_k
 
 <img width="352" height="55" alt="image" src="https://github.com/user-attachments/assets/637c01d5-23be-480d-a1a9-90605bac197d" />
 
+同胚变换会保留拓扑性质，带手把的咖啡杯和甜甜圈同胚；不能撕扯、戳破\
+  - 比如$$A,B⊂R2:$$\
+  $$A={x|d(x,0)<1/3}$$\
+  $$B={x|2/3<d(x,0)<1}$$ \
+这里只能升维到至少3维($n>=3$)，直觉是也许可以让其中一个稍微下沉一点，拿个$(n-1)$维的超平面切一刀；\
+如果还是二维到二维，采用可逆变换，那么每一层都是一个 $\mathbb{R}^2 \to \mathbb{R}^2$ 的同胚映射，不可能分开
+<img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/f35cc555-99d1-46f3-b5ef-c8fe58ce8276" />
+
+  
+  
 
 ###  激活函数例子： $\sigma$ 几何直观：ReLU 与 Sigmoid 如何改变二维空间
 
