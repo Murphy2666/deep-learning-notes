@@ -1,6 +1,16 @@
 
 # 向前传导几何变换、特征表示（Representation）
 https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/#fnref2
+
+深度学习本质是传好几层，线性/非线性改变空间，一次次得到新的表示，直到最新表示下的特征变得线性可分\
+（决策边界划得开）
+
+<img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/7e874b64-a080-460e-ad79-bf6422b0ac65" />
+
+一次次拉伸、扭曲空间，直到直线可以平分（二维里是直线，n维里叫决策边界，高维超平面）
+
+<img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/1d6f468c-eaa1-405b-808d-bd4058eeafe8" />
+
 ---
 ### 1、向前传导本质是空间拉伸、平移、弯曲
 假设这一层（可以是input layer）空间是 \
