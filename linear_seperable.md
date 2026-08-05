@@ -12,7 +12,7 @@ https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/#fnref2
 <img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/1d6f468c-eaa1-405b-808d-bd4058eeafe8" />
 
 ---
-### 1、向前传导本质是空间拉伸、平移、弯曲
+## 1、向前传导本质是空间拉伸、平移、弯曲
 假设这一层（可以是input layer）空间是 \
 $$\mathbf{X} = (x_1, x_2, \dots, x_n)^T \in \mathbb{R}^n$$\
 假设下一层（可以是hidden layer）有k个神经元 \
@@ -31,8 +31,12 @@ $$\mathbf{a} = \sigma(\mathbf{W}\mathbf{x} + \mathbf{b}) = (a_1, a_2, \dots, a_k
 - $\sigma(\cdot)$（非线性变换 Non-linear）
   激活函数 $\sigma$: 扭曲、挤压、折叠。
 
+### 如果 $\mathbf{W}$ 是non-singular可逆的，且激活函数取可逆的单调函数，那这一层神经网络就是同胚Homeomorphism
 
-####  Eg. $\sigma$ 几何直观：ReLU 与 Sigmoid 如何改变二维空间
+<img width="352" height="55" alt="image" src="https://github.com/user-attachments/assets/637c01d5-23be-480d-a1a9-90605bac197d" />
+
+
+###  激活函数例子： $\sigma$ 几何直观：ReLU 与 Sigmoid 如何改变二维空间
 
 * **ReLU（沿 $z=0$ 折叠 / Folding）**
   * **几何直观：** 以直线 $y = x$ 为例，原本是穿过原点 $(0,0)$ 的平直直线；经过 ReLU 作用后，在 $x \le 0$ 区域被**拍平折叠**为 $y = 0$，而在 $x > 0$ 区域保持 $y = x$。其实沿y=0折叠
@@ -41,11 +45,13 @@ $$\mathbf{a} = \sigma(\mathbf{W}\mathbf{x} + \mathbf{b}) = (a_1, a_2, \dots, a_k
   * **二分类任务：一般hidden layers用ReLU，最后一层output layer用sigmoid** \
     其实sigmoid是softmax的一种
     
-$$P(\text{Class 1}) = \frac{e^{z_1}}{e^{z_1} + e^{z_2}} = \frac{1}{1 + e^{-(z_1 - z_2)}} = \frac{1}{1 + e^{-\Delta z}} = \sigma(\Delta z)$$
+
 
 * **Sigmoid（非线性弯曲与挤压 / Bending/Warping）**
   * **几何直观：** 把原本平直的 $x$ 轴，**弯曲拉伸**成一条 S 型的 Sigmoid 曲线。
   * **本质：** 将整个空间的远端向 $(0, 1)$ 区间内**弯曲并挤压**。
+
+
  
     
 ---
