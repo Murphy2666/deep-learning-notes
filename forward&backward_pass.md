@@ -32,20 +32,6 @@ $$z = w_1 x_1 + w_2 x_2 + b$$ 只能做linear transformation线性/仿射变换�
 最后得到的新空间，维度=神经元个数，就是新的representation\
 推导详见linear_seperable.md
 
-### 几何直观：ReLU 与 Sigmoid 如何改变二维空间
-
-* **ReLU（沿 $z=0$ 折叠 / Folding）**
-  * **几何直观：** 以直线 $y = x$ 为例，原本是穿过原点 $(0,0)$ 的平直直线；经过 ReLU 作用后，在 $x \le 0$ 区域被**拍平折叠**为 $y = 0$，而在 $x > 0$ 区域保持 $y = x$。其实沿y=0折叠
-  * **本质：** 沿 $z = 0$ 将空间硬折叠。
-  * **多分类任务：一般hidden layers用ReLU，最后一层output layer用softmax**
-  * **二分类任务：一般hidden layers用ReLU，最后一层output layer用sigmoid** \
-    其实sigmoid是softmax的一种
-    
-$$P(\text{Class 1}) = \frac{e^{z_1}}{e^{z_1} + e^{z_2}} = \frac{1}{1 + e^{-(z_1 - z_2)}} = \frac{1}{1 + e^{-\Delta z}} = \sigma(\Delta z)$$
-
-* **Sigmoid（非线性弯曲与挤压 / Bending/Warping）**
-  * **几何直观：** 把原本平直的 $x$ 轴，**弯曲拉伸**成一条 S 型的 Sigmoid 曲线。
-  * **本质：** 将整个空间的远端向 $(0, 1)$ 区间内**弯曲并挤压**。
 
 
 ---
