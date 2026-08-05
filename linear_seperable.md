@@ -7,7 +7,7 @@ https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/#fnref2
 
 <img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/7e874b64-a080-460e-ad79-bf6422b0ac65" />
 
-一次次拉伸、扭曲空间，直到直线可以平分（二维里是直线，n维里叫决策边界，高维超平面hyperplane）
+一次次拉伸、扭曲空间，直到直线可以平分（linearly seperable, 二维里是直线，n维里叫决策边界，高维超平面hyperplane）
 
 <img width="288" height="280" alt="image" src="https://github.com/user-attachments/assets/1d6f468c-eaa1-405b-808d-bd4058eeafe8" />
 
