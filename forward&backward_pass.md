@@ -42,7 +42,7 @@ $$z = w_1 x_1 + w_2 x_2 + b$$ 只能做linear transformation线性/仿射变换�
 
 ---
 
-### 2、反向传播（Back Propagation）
+### 2、反向传播（Back Propagation）本质是导数的chain rule
 
 比较预测结果和真实值 ground truth，计算 loss（比如 mae）；对 loss 求 $w$ 和 $b$ 的偏导：
 
@@ -56,6 +56,34 @@ $$
 \nabla_{b_i} L &= \frac{\partial L(y, \hat{y})}{\partial b_i} = g_{bi} \quad (i \in \{1, 2, 3\})
 \end{aligned}
 $$
+
+假设一个深度学习模型有$L$层，输出层有只有一个神经元，上一层$L-1$层也只有一个神经元，用mse做loss；
+$L-1$到$L$层的权重和bias是：
+$(w^{(L)},b^{(L)})$
+C0是cost function也就是loss
+链式传导：
+$$\frac{\partial C_0}{\partial w^{(L)}} = \frac{\partial z^{(L)}}{\partial w^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}} \frac{\partial C_0}{\partial a^{(L)}}$$
+
+各部分等于：
+
+$$z^{(L)} = w^{(L)} a^{(L-1)} + b^{(L)} \quad \longrightarrow \quad \frac{\partial z^{(L)}}{\partial w^{(L)}} = a^{(L-1)}$$
+
+<p align="center">
+$$a^{(L)} = \sigma \left( z^{(L)} \right) \quad \longrightarrow \quad \frac{\partial a^{(L)}}{\partial z^{(L)}} = \sigma' \left( z^{(L)} \right)$$ 
+（这里 $\sigma$ 激活函数可以是sigmoid可以是$tanh$可以是softmax等等）
+</p>
+
+$$C_0 = \left( a^{(L)} - y \right)^2 \quad \longrightarrow \quad \frac{\partial C_0}{\partial a^{(L)}} = 2 \left( a^{(L)} - y \right)$$
+
+这是一个training example的，对于batch_size个example的，它们前向传导后再反向传导，调整一次参数。\
+假设batch_size=n:\
+对于n个样本的损失函数，是取平均：
+$$C = \frac{1}{n} \sum_{k=0}^{n-1} C_k$$
+
+对 $w^(L)$ 的求导：
+$$\frac{\partial C}{\partial w^{(L)}} = \frac{1}{n} \sum_{k=0}^{n-1} \frac{\partial C_k}{\partial w^{(L)}}$$\
+
+这是一个batch_size训完后，模型对于 $w^(L)$ 整体调整的方向
 
 ---
 
