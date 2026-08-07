@@ -57,6 +57,7 @@ $$
 \end{aligned}
 $$
 
+####一个神经元 --> 输出层一个神经元
 假设一个深度学习模型有$L$层，输出层有只有一个神经元，上一层$L-1$层也只有一个神经元，用mse做loss；
 $L-1$到$L$层的权重和bias是：
 $(w^{(L)},b^{(L)})$
@@ -80,10 +81,24 @@ $$C_0 = \left( a^{(L)} - y \right)^2 \quad \longrightarrow \quad \frac{\partial 
 对于n个样本的损失函数，是取平均：
 $$C = \frac{1}{n} \sum_{k=0}^{n-1} C_k$$
 
-对 $w^(L)$ 的求导：
-$$\frac{\partial C}{\partial w^{(L)}} = \frac{1}{n} \sum_{k=0}^{n-1} \frac{\partial C_k}{\partial w^{(L)}}$$\
+对 $w^ (L)$ 的求导：
+$$\frac{\partial C}{\partial w^{(L)}} = \frac{1}{n} \sum_{k=0}^{n-1} \frac{\partial C_k}{\partial w^{(L)}}$$\\
 
-这是一个batch_size训完后，模型对于 $w^(L)$ 整体调整的方向
+这是一个batch_size训完后，模型对于 $w^(L)$ 整体调整的方向\
+$b$同理。
+
+#### general case: 随机层，多个中的一个神经元 
+
+<img width="497.7" height="295.4" alt="image" src="https://github.com/user-attachments/assets/5c02ebd7-623b-49c7-9794-b7c8963069cd" />
+
+**or的上面一句**： $(l+1)$ 层是hidden layer\
+**or的下面一句**:  $(l+1)$ 层是output layer
+
+对 $(l+1)$ 层的每个神经元相加，是因为 C 受 $(l+1)$ 层的所有神经元影响（由 $w_{jk}^{(l+1)}$ 和 $b$作用）\
+$(l+1)$ 层的每个神经元又受它的上一层 $(l)$ 层的 $a_j^{l}$影响\
+比如假设
+$l-1$层3个神经元\
+$$z_j^{(L)} = w_{j0}^{(L)} a_0^{(L-1)} + w_{j1}^{(L)} a_1^{(L-1)} + w_{j2}^{(L)} a_2^{(L-1)} + b_j^{(L)}$$
 
 ---
 
